@@ -1,7 +1,7 @@
 from fastapi import APIRouter
 from database.supabase_client import supabase
 
-from functools import lru_cache
+
 
 router = APIRouter(
     prefix="/dashboard",
@@ -9,7 +9,6 @@ router = APIRouter(
 )
 
 import pandas as pd
-@lru_cache(maxsize=1)
 def get_party_master():
 
     response = (
@@ -21,7 +20,7 @@ def get_party_master():
 
     return pd.DataFrame(response.data)
 
-@lru_cache(maxsize=1)
+
 def get_all_sales():
 
     all_rows = []
